@@ -18,8 +18,8 @@ def charge(request):
 	if request.method == "POST":
 		charge = stripe.Charge.create(
 			amount = 500,
-			currency = usd,
+			currency = 'usd',
 			description = 'A Django Charge',
-			source = [request.POST['stripetoken']]
+			source = request.POST['stripeToken']
 		)
 	return render(request, 'charge.html')
